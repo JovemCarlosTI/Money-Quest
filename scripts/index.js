@@ -67,7 +67,6 @@ function startNextRound() {
 
     let saldoAtualizado = saldo
 
-    console.log(efeitos)
 
     let indexEffectsToRemove = []
     for(let i = 0; i < efeitos.length; i++) {
@@ -77,7 +76,6 @@ function startNextRound() {
         if(efeitos[i].rodadas === 0) indexEffectsToRemove.push(i)
     }
 
-    console.log(efeitos)
 
     indexEffectsToRemove.forEach(index => efeitos.splice(index, 1))
 
