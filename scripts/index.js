@@ -15,12 +15,21 @@ function startNewEvent() {
 
 function renderEvent(evento) {
     document.getElementById('problema-personagem').textContent = evento.personagem
-    document.getElementById('problema-texto').textContent = evento.problema
+    document.getElementById('problema-texto').textContent = evento.texto
 
-    evento.alternativas.forEach(alternativa => {
-        const botao = document.querySelector(`[data-alternativa=${alternativa.letra}]`)
-        botao.textContent = `${alternativa.letra.toUpperCase()}) ${alternativa.texto}`
-    })
+    if(evento.tipo == 'problema') {
+        evento.alternativas.forEach(alternativa => {
+            const botao = document.querySelector(`[data-alternativa=${alternativa.letra}]`)
+            botao.classList.remove('hidden')
+            botao.textContent = `${alternativa.letra.toUpperCase()}) ${alternativa.texto}`
+        })
+    } else {
+        const botoes = document.querySelectorAll('.alternativa')
+        botoes.forEach(botao => botao.classList.add('hidden'))
+
+        if (evento.feedback.efeito) startFeedbackEffect(evento.feedback.efeito)
+        renderFeedback(evento.feedback)
+    }
 }
 
 const chooseEventFeedback = (alternativaMarcada, alternativas) => {
@@ -90,7 +99,6 @@ function startNextRound() {
 
 export {
     chooseEventFeedback,
-    startNextRound
+    startNextRound,
+    startNewEvent
 }
-
-startNewEvent()

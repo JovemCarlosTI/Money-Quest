@@ -1,7 +1,9 @@
 [
     {
+        "id": 1,
         "personagem": "pai",
-        "problema": "Após anos de dedicação à mesma empresa, você recebe a notícia de que haverá cortes de pessoal e seu salário será reduzido. Como você planeja lidar com essa situação, sabendo que sua família depende da sua renda?",
+        "tipo": "problema",
+        "texto": "Após anos de dedicação à mesma empresa, você recebe a notícia de que haverá cortes de pessoal e seu salário será reduzido. Como você planeja lidar com essa situação, sabendo que sua família depende da sua renda?",
         "alternativas": [
             {
                 "letra": "a",
@@ -48,5 +50,17 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 2,
+        "tipo": "cenário",
+        "texto": "Gasto inesperado com reparo de celular",
+        "feedback": {
+            "texto": "Você derrubou o celular no chão (e ele, como sempre, caiu de tela para baixo). O conserto não foi tão caro, mas necessário.",
+            "efeito": {
+                "dinheiro": -150,
+                "rodadas": 1
+            }
+        }
     }
 ]
