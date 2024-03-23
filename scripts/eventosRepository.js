@@ -1,5 +1,5 @@
 async function loadEventos() {
-    const response = await fetch('../data/eventos.json')
+    const response = await fetch('/data/eventos.json')
     const eventos = await response.json()
 
     return eventos
