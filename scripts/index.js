@@ -62,7 +62,32 @@ function renderFeedback(feedback) {
 }
 
 function startNextRound() {
-    console.log("avançou")
+    const saldo = Number(window.sessionStorage.getItem('saldo'))
+    const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
+
+    let saldoAtualizado = saldo
+
+    console.log(efeitos)
+
+    let indexEffectsToRemove = []
+    for(let i = 0; i < efeitos.length; i++) {
+        saldoAtualizado += efeitos[i].dinheiro
+        efeitos[i].rodadas -= 1
+
+        if(efeitos[i].rodadas === 0) indexEffectsToRemove.push(i)
+    }
+
+    console.log(efeitos)
+
+    indexEffectsToRemove.forEach(index => efeitos.splice(index, 1))
+
+    window.sessionStorage.setItem('saldo', saldoAtualizado)
+    window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
+
+    const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
+    window.sessionStorage.setItem('rodada', rodadaAtual + 1)
+
+    startNewEvent()
 }
 
 export {
