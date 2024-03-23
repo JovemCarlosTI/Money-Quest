@@ -16,13 +16,14 @@
     </div>
     <script src="./scripts/index.js" type="module"></script>
     <script type="module" defer>
-        import {runEventFeedback} from './scripts/index.js'
+        import {chooseEventFeedback, startNextRound} from './scripts/index.js'
 
         function onClickAlternativa(event) {
             const alternativaMarcada = event.target.getAttribute('data-alternativa')
             const alternativas = JSON.parse(window.sessionStorage.getItem('alternativas'))
 
-            runEventFeedback(alternativaMarcada, alternativas)
+            chooseEventFeedback(alternativaMarcada, alternativas)
+            startNextRound()
         }
 
         const alternativas = document.querySelectorAll('.alternativa')

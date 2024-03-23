@@ -2,6 +2,10 @@ import { loadEventos, chooseRandomEvent } from './eventosRepository.js'
 
 const eventos = await loadEventos()
 
+window.sessionStorage.setItem('saldo', 300)
+window.sessionStorage.setItem('rodada', 1)
+window.sessionStorage.setItem('efeitos', JSON.stringify([]))
+
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
     // Checar se o evento já foi escolhido antes
@@ -19,8 +23,7 @@ function renderEvent(evento) {
     })
 }
 
-const runEventFeedback = (alternativaMarcada, alternativas) => {
-    console.log(alternativaMarcada)
+const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     const feedbacks = alternativas.find(alternativa => alternativa.letra === alternativaMarcada).feedbacks
 
     let probabilidadeAcumulada = 0
@@ -35,7 +38,14 @@ const runEventFeedback = (alternativaMarcada, alternativas) => {
         }
     }
 
+    if (feedbackEscolhido.efeito) startFeedbackEffect(feedbackEscolhido.efeito)
     renderFeedback(feedbackEscolhido)
+}
+
+function startFeedbackEffect(feedback) {
+    const efeitosAtuais = JSON.parse(window.sessionStorage.getItem('efeitos'))
+    efeitosAtuais.push(feedback)
+    window.sessionStorage.setItem('efeitos', JSON.stringify(efeitosAtuais))
 }
 
 function renderFeedback(feedback) {
@@ -51,8 +61,13 @@ function renderFeedback(feedback) {
     feedbackView.innerHTML = feedbackHTML
 }
 
+function startNextRound() {
+    console.log("avançou")
+}
+
 export {
-    runEventFeedback
+    chooseEventFeedback,
+    startNextRound
 }
 
 startNewEvent()
