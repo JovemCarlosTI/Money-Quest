@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Quest</title>
+</head>
+<body>
+    <div id="problema">
+            <p id="problema-personagem"></p>
+            <h2 id="problema-texto"></h2>
+            <button class="alternativa" data-alternativa="a"></button>
+            <button class="alternativa" data-alternativa="b"></button>
+            <button class="alternativa" data-alternativa="c"></button>
+            <div id="feedback"></div>
+    </div>
+    <script src="./scripts/index.js" type="module"></script>
+    <script type="module" defer>
+        import {runEventFeedback} from './scripts/index.js'
+
+        function onClickAlternativa(event) {
+            const alternativaMarcada = event.target.getAttribute('data-alternativa')
+            const alternativas = JSON.parse(window.sessionStorage.getItem('alternativas'))
+
+            runEventFeedback(alternativaMarcada, alternativas)
+        }
+
+        const alternativas = document.querySelectorAll('.alternativa')
+        alternativas.forEach(alternativa => {
+            alternativa.addEventListener('click', onClickAlternativa)
+        })
+        </script>
+</body>
+</html>

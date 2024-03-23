@@ -1,0 +1,52 @@
+[
+    {
+        "personagem": "pai",
+        "problema": "Após anos de dedicação à mesma empresa, você recebe a notícia de que haverá cortes de pessoal e seu salário será reduzido. Como você planeja lidar com essa situação, sabendo que sua família depende da sua renda?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Procurar um segundo emprego para complementar a renda.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Você conseguiu um emprego temporário durante os finais de semana",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Você procurou, mas não achou nada",
+                        "efeito": {
+                            "dinheiro": -50,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Reduzir os gastos da família cortando despesas desnecessárias.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Por mais que seja difícil, a família entendeu a situação e se ajustou a nova realidade financeira",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Utilizar suas economias para cobrir o déficit temporário.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Suas economias foram utilizadas para suprir os gastos",
+                        "efeito": {
+                            "dinheiro": -50,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]
