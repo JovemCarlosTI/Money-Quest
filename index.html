@@ -22,6 +22,8 @@
     <script src="./scripts/index.js" type="module"></script>
     <script type="module" defer>
         import {chooseEventFeedback, startNextRound, startNewEvent} from './scripts/index.js'
+        
+        document.body.onload = startNewEvent()
 
         function onClickAlternativa(event) {
             const alternativaMarcada = event.target.getAttribute('data-alternativa')
@@ -30,15 +32,13 @@
             chooseEventFeedback(alternativaMarcada, alternativas)
             startNextRound()
         }
-        
-        document.body.onload = startNewEvent()
-        const btnNextRound = document.getElementById('btn-next-round')
-        btnNextRound.addEventListener('click', startNextRound)
-
         const alternativas = document.querySelectorAll('.alternativa')
         alternativas.forEach(alternativa => {
             alternativa.addEventListener('click', onClickAlternativa)
         })
+
+        const btnNextRound = document.getElementById('btn-next-round')
+        btnNextRound.addEventListener('click', startNextRound)
         </script>
 </body>
 </html>

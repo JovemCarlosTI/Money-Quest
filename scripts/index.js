@@ -1,18 +1,20 @@
 import { loadEventos, chooseRandomEvent } from './eventosRepository.js'
 
+// Configurações inicias do jogo
 const eventos = await loadEventos()
-
 window.sessionStorage.setItem('saldo', 300)
 window.sessionStorage.setItem('rodada', 1)
 window.sessionStorage.setItem('efeitos', JSON.stringify([]))
 
+// Escolhe um evento da lista e o configura para uso
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
-    // Checar se o evento já foi escolhido antes
+    // TODO: Checar se o evento já foi escolhido antes
     renderEvent(evento)
     window.sessionStorage.setItem('alternativas', JSON.stringify(evento.alternativas))
 }
 
+// Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
 function renderEvent(evento) {
     document.getElementById('problema-personagem').textContent = evento.personagem
     document.getElementById('problema-texto').textContent = evento.texto
@@ -32,6 +34,8 @@ function renderEvent(evento) {
     }
 }
 
+
+// Escolhe o feedback (reação) aleatório de acordo com a alternativa marcada
 const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     const feedbacks = alternativas.find(alternativa => alternativa.letra === alternativaMarcada).feedbacks
 
@@ -47,6 +51,7 @@ const chooseEventFeedback = (alternativaMarcada, alternativas) => {
         }
     }
 
+    // Algumas consequências não mudam o saldo, nesse caso, não tem efeito
     if (feedbackEscolhido.efeito) startFeedbackEffect(feedbackEscolhido.efeito)
     renderFeedback(feedbackEscolhido)
 }
@@ -57,6 +62,7 @@ function startFeedbackEffect(feedback) {
     window.sessionStorage.setItem('efeitos', JSON.stringify(efeitosAtuais))
 }
 
+// Função auxiliar de chooseEventFeedback, organiza visualmente o feedback (útil para quando for adaptar pro visual novo)
 function renderFeedback(feedback) {
     const feedbackView = document.getElementById('feedback')
     let feedbackHTML = `<div>
@@ -70,12 +76,12 @@ function renderFeedback(feedback) {
     feedbackView.innerHTML = feedbackHTML
 }
 
+// Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
     const saldo = Number(window.sessionStorage.getItem('saldo'))
     const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
 
     let saldoAtualizado = saldo
-
 
     let indexEffectsToRemove = []
     for(let i = 0; i < efeitos.length; i++) {
