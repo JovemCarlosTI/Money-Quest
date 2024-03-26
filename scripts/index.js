@@ -5,6 +5,7 @@ const eventos = await loadEventos()
 window.sessionStorage.setItem('saldo', 300)
 window.sessionStorage.setItem('rodada', 0)
 window.sessionStorage.setItem('efeitos', JSON.stringify([]))
+window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
 
 // Escolhe um evento da lista e o configura para uso
 function startNewEvent() {
@@ -20,12 +21,14 @@ function renderEvent(evento) {
     document.getElementById('problema-texto').textContent = evento.texto
 
     if(evento.tipo == 'problema') {
+        window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
         evento.alternativas.forEach(alternativa => {
             const botao = document.querySelector(`[data-alternativa=${alternativa.letra}]`)
             botao.classList.remove('hidden')
             botao.textContent = `${alternativa.letra.toUpperCase()}) ${alternativa.texto}`
         })
     } else {
+        window.sessionStorage.setItem('podeAvancar', JSON.stringify(true))
         const botoes = document.querySelectorAll('.alternativa')
         botoes.forEach(botao => botao.classList.add('hidden'))
 
@@ -33,7 +36,6 @@ function renderEvent(evento) {
         renderFeedback(evento.feedback)
     }
 }
-
 
 // Escolhe o feedback (reação) aleatório de acordo com a alternativa marcada
 const chooseEventFeedback = (alternativaMarcada, alternativas) => {
@@ -54,6 +56,7 @@ const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     // Algumas consequências não mudam o saldo, nesse caso, não tem efeito
     if (feedbackEscolhido.efeito) startFeedbackEffect(feedbackEscolhido.efeito)
     renderFeedback(feedbackEscolhido)
+    window.sessionStorage.setItem('podeAvancar', JSON.stringify(true))
 }
 
 function startFeedbackEffect(feedback) {
@@ -85,6 +88,8 @@ function startNextRound() {
         startNewEvent()
         return
     }
+
+    if (!JSON.parse(window.sessionStorage.getItem('podeAvancar'))) return
 
     const saldo = Number(window.sessionStorage.getItem('saldo'))
     const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
