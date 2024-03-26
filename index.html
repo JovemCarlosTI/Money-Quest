@@ -21,9 +21,9 @@
     <button id="btn-next-round">Próximo round</button>
     <script src="./scripts/index.js" type="module"></script>
     <script type="module" defer>
-        import {chooseEventFeedback, startNextRound, startNewEvent} from './scripts/index.js'
+        import {chooseEventFeedback, startNextRound} from './scripts/index.js'
         
-        document.body.onload = startNewEvent()
+        document.body.onload = startNextRound()
 
         function onClickAlternativa(event) {
             const alternativaMarcada = event.target.getAttribute('data-alternativa')

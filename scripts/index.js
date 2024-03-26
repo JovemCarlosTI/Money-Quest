@@ -3,7 +3,7 @@ import { loadEventos, chooseRandomEvent } from './eventosRepository.js'
 // Configurações inicias do jogo
 const eventos = await loadEventos()
 window.sessionStorage.setItem('saldo', 300)
-window.sessionStorage.setItem('rodada', 1)
+window.sessionStorage.setItem('rodada', 0)
 window.sessionStorage.setItem('efeitos', JSON.stringify([]))
 
 // Escolhe um evento da lista e o configura para uso
@@ -78,11 +78,20 @@ function renderFeedback(feedback) {
 
 // Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
+    const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
+
+    if (rodadaAtual == 0) {
+        window.sessionStorage.setItem('rodada', rodadaAtual + 1)
+        startNewEvent()
+        return
+    }
+
     const saldo = Number(window.sessionStorage.getItem('saldo'))
     const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
 
     let saldoAtualizado = saldo
 
+    // Executa eventos pendentes, salvando o índice daqueles que serão removidos por acabarem
     let indexEffectsToRemove = []
     for(let i = 0; i < efeitos.length; i++) {
         saldoAtualizado += efeitos[i].dinheiro
@@ -90,14 +99,10 @@ function startNextRound() {
 
         if(efeitos[i].rodadas === 0) indexEffectsToRemove.push(i)
     }
-
-
     indexEffectsToRemove.forEach(index => efeitos.splice(index, 1))
 
     window.sessionStorage.setItem('saldo', saldoAtualizado)
     window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
-
-    const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
 
     startNewEvent()
@@ -105,6 +110,5 @@ function startNextRound() {
 
 export {
     chooseEventFeedback,
-    startNextRound,
-    startNewEvent
+    startNextRound
 }
