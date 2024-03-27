@@ -40,6 +40,7 @@ function renderEvent(evento) {
 
 // Escolhe o feedback (reação) aleatório de acordo com a alternativa marcada
 const chooseEventFeedback = (alternativaMarcada, alternativas) => {
+    if (JSON.parse(window.sessionStorage.getItem('podeAvancar'))) return
     const feedbacks = alternativas.find(alternativa => alternativa.letra === alternativaMarcada).feedbacks
 
     let probabilidadeAcumulada = 0
