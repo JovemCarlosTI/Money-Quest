@@ -6,14 +6,37 @@ window.sessionStorage.setItem('saldo', 300)
 window.sessionStorage.setItem('rodada', 0)
 window.sessionStorage.setItem('efeitos', JSON.stringify([]))
 window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
+window.sessionStorage.setItem('eventosExecutados', JSON.stringify([]))
 
 // Escolhe um evento da lista e o configura para uso
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
+    if (eventWasExecutedBefore(evento)) {
+        if (!JSON.parse(window.sessionStorage.getItem('eventosExecutados')).length >= eventos.length) {
+            startNewEvent()
+            return
+        } else {
+            alert('Você já jogou todas as possibilidades! Recarregue a página para jogar novamente!')
+            return
+        }
+    }
+
+    addToExecutedEvents(evento)
     // TODO: Checar se o evento já foi escolhido antes
     eraseFeedback()
     renderEvent(evento)
     window.sessionStorage.setItem('alternativas', JSON.stringify(evento.alternativas))
+}
+
+function addToExecutedEvents(evento) {
+    const eventosExecutados = JSON.parse(window.sessionStorage.getItem('eventosExecutados'))
+    eventosExecutados.push(evento.id)
+    window.sessionStorage.setItem('eventosExecutados', JSON.stringify(eventosExecutados))
+}
+
+function eventWasExecutedBefore(evento) {
+    const eventosExecutados = JSON.parse(window.sessionStorage.getItem('eventosExecutados'))
+    return eventosExecutados.includes(evento.id)
 }
 
 // Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
