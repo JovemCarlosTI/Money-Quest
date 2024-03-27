@@ -11,6 +11,7 @@ window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
     // TODO: Checar se o evento já foi escolhido antes
+    eraseFeedback()
     renderEvent(evento)
     window.sessionStorage.setItem('alternativas', JSON.stringify(evento.alternativas))
 }
@@ -111,6 +112,11 @@ function startNextRound() {
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
 
     startNewEvent()
+}
+
+function eraseFeedback() {
+    const feedbackView = document.getElementById('feedback')
+    feedbackView.innerHTML = ''
 }
 
 export {
