@@ -4,6 +4,7 @@ import { loadEventos, chooseRandomEvent } from './eventosRepository.js'
 const eventos = await loadEventos()
 window.sessionStorage.setItem('saldo', 300)
 window.sessionStorage.setItem('rodada', 0)
+window.sessionStorage.setItem('mes', 0)
 window.sessionStorage.setItem('efeitos', JSON.stringify([]))
 window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
 window.sessionStorage.setItem('eventosExecutados', JSON.stringify([]))
@@ -26,6 +27,8 @@ function startNewEvent() {
     eraseFeedback()
     renderEvent(evento)
     window.sessionStorage.setItem('alternativas', JSON.stringify(evento.alternativas))
+
+
 }
 
 function addToExecutedEvents(evento) {
@@ -93,6 +96,11 @@ function startFeedbackEffect(feedback) {
 // Função auxiliar de chooseEventFeedback, organiza visualmente o feedback (útil para quando for adaptar pro visual novo)
 function renderFeedback(feedback) {
     const feedbackView = document.getElementById('feedback')
+    const mes = document.getElementById('mes')
+    const rodada = document.getElementById('rodada')
+    let mesHTML = 'Mês: ' + Number(window.sessionStorage.getItem('mes'))
+    let rodadaHTML = 'Rodada: ' + Number(window.sessionStorage.getItem('rodada'))
+
     let feedbackHTML = `<div>
         <p>${feedback.texto}</p>
         ${feedback.efeito ? (
@@ -102,17 +110,24 @@ function renderFeedback(feedback) {
         ) : 'Nem perdeu, nem ganhou!'}`
 
     feedbackView.innerHTML = feedbackHTML
+    mes.innerHTML = mesHTML
+    rodada.innerHTML = rodadaHTML
+
 }
 
 // Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
     const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
 
+   
+
     if (rodadaAtual == 0) {
         window.sessionStorage.setItem('rodada', rodadaAtual + 1)
+        window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual/10) + 1)
         startNewEvent()
         return
     }
+
 
     if (!JSON.parse(window.sessionStorage.getItem('podeAvancar'))) return
 
@@ -134,6 +149,9 @@ function startNextRound() {
     window.sessionStorage.setItem('saldo', saldoAtualizado)
     window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
+    window.sessionStorage.setItem('mes',  Math.trunc(rodadaAtual/10) + 1)
+
+
 
     startNewEvent()
 }
