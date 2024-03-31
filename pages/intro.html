@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./../assets/images/favicon.png">
+    <link rel="stylesheet" href="./../styles/main.css">
+    <link rel="stylesheet" href="./../styles/intro.css">
+
+    <title>MoneyQuest</title>
+</head>
+<body>
+    <audio autoplay id="intro">
+        <source src="../assets/audio/intro-track.mp3" type="audio/mpeg">
+        Seu navegador não suporta música de fundo :(
+      </audio>
+
+    <img src="../assets/images/logo.png" alt="Logo MoneyQuest" id="logo">
+    <div class="box">
+        <h2>Seja bem-vindo ao MoneyQuest! Aqui você vai aprender a lidar com dinheiro de uma forma divertida e desafiadora. Vamos começar?</h2>
+        <a href="#" class="btn" id="btn-start">Começar</a>
+    </div>
+
+    <script>
+        const audio = document.getElementById('intro')
+        audio.muted = false
+        audio.play()
+    </script>
+</body>
+</html>
