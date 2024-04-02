@@ -11,13 +11,36 @@ body {
     border: 5px solid darkgoldenrod;
     border-radius: 16px;
     width: 70vw;
-    height: 70vh;
-    margin: 20vh auto;
+    height: 85vh;
+    margin: 5vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
+    font-weight: bold;
+    padding: 1rem 5rem;
+    box-sizing: border-box;
+    min-height: 315px;
+}
+
+.box #logo {
+    width: 45vw;
+    min-width: 300px;
+    max-width: 450px;
+}
+
+@media screen and (max-width: 768px) {
+    .box {
+        width: 90vw;
+        margin: 5vh auto;
+        padding: 1rem 2rem;
+    }
+
+    .box h2 {
+        font-size: 1.2rem;
+    }
+    
 }
 
 .btn {
