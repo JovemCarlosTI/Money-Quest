@@ -53,14 +53,844 @@
     },
     {
         "id": 2,
-        "tipo": "cenário",
-        "texto": "Gasto inesperado com reparo de celular",
-        "feedback": {
-            "texto": "Você derrubou o celular no chão (e ele, como sempre, caiu de tela para baixo). O conserto não foi tão caro, mas necessário.",
-            "efeito": {
-                "dinheiro": -150,
-                "rodadas": 1
+        "personagem": "Mãe",
+        "tipo": "decisão",
+        "texto": "Você sempre sonhou em aprimorar suas habilidades profissionais, mas agora se encontra diante da oportunidade de investir em um negócio próprio. Como você equilibra seus sonhos pessoais com as necessidades financeiras da família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Fazer o curso para aumentar suas chances de conseguir uma promoção e ser mais bem remunerada.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "O curso gerou resultados esperados e no final ainda conseguiu um aumento",
+                        "efeito": {
+                            "dinheiro": 50,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "O curso saiu caro, e ainda não gerou a promoção desejada",
+                        "efeito": {
+                            "dinheiro": -20,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Investir em um negócio próprio para ter mais controle sobre sua fonte de renda.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.6,
+                        "texto": "Seu negócio novo foi um sucesso",
+                        "efeito": {
+                            "dinheiro": 60,
+                            "rodadas": 3
+                        }
+                    },
+                    {
+                        "probabilidade": 0.4,
+                        "texto": "O negócio não prosperou como o desejado",
+                        "efeito": {
+                            "dinheiro": -80,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Guardar o dinheiro para emergências futuras.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você decidiu não arriscar o futuro da sua família",
+                        "efeito": null
+                    }
+                ]
             }
-        }
+        ]
+    },
+    {
+        "id": 3,
+        "personagem": "Filha",
+        "tipo": "decisão",
+        "texto": "Após meses procurando por oportunidades, você recebe uma oferta de estágio em uma empresa prestigiada, porém, localizada longe de casa, implicando em altos custos de deslocamento diário. Como você justifica essa decisão à sua família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Aceitar a oferta, mesmo que signifique um custo inicial alto.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "O estágio apenas ‘se paga’ não gerando ganhos adicionais pra família",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Recusar a oferta e procurar outras oportunidades que não exijam tanto deslocamento.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "Você encontra outra oportunidade no próprio bairro",
+                        "efeito": {
+                            "dinheiro": 5,
+                            "rodadas": 2
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "Você não encontra nenhuma oportunidade mais próxima, e acabou gastando tempo",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Negociar um acordo de reembolso de despesas de transporte com a empresa.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "A empresa aceita pagar metade do custo de deslocamento",
+                        "efeito": {
+                            "dinheiro": 10,
+                            "rodadas": 2
+                        }
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "A empresa arca com todo o valor de seu deslocamento",
+                        "efeito": {
+                            "dinheiro": 15,
+                            "rodadas": 2
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "A empresa recusa-se a pagar o valor e você fica sem a vaga",
+                        "efeito": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "personagem": "Filho",
+        "tipo": "decisão",
+        "texto": "Seu desejo por um novo videogame coloca você em conflito com seus pais, que estão preocupados com os gastos extras. Como você argumenta sua posição, considerando as finanças da família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Oferecer-se para economizar seu próprio dinheiro para pagar pelo videogame.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "Você consegue economizar parte do valor, mas não todo",
+                        "efeito": {
+                            "dinheiro": -20,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "Você consegue economizar o valor total",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Convencer seus pais de que o videogame é um investimento em sua felicidade e entretenimento.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Seus pais gastam parte das economias pra comprar o videogame",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Procurar alternativas mais baratas, como comprar jogos usados ou esperar por uma promoção.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você consegue numa promoção um videogame usado",
+                        "efeito": {
+                            "dinheiro": -30,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "personagem": "Pai",
+        "tipo": "decisão",
+        "texto": "Com o estresse do trabalho, a ideia de uma viagem em família é tentadora, mas você está preocupado com os custos. Como você planeja proporcionar essa experiência à sua família sem comprometer suas finanças?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Pesquisar opções de viagem mais econômicas e fazer um orçamento detalhado.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Vocês decidem ir acampar nas montanhas durante o final de semana, sem grandes gastos",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Adiar a viagem e economizar dinheiro para uma futura aventura.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "A opção de adiar a viagem foi boa, assim vocês poderão se programar para ir à praia nas férias de verão",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Buscar opções de financiamento, como um empréstimo ou parcelamento.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Vocês encontram um ótimo pacote com pagamento parcelado para conhecer os pontos turísticos do país vizinho",
+                        "efeito": {
+                            "dinheiro": -20,
+                            "rodadas": 5
+                        }
+                    },
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Vocês fazem uma reserva em um hotel na serra na alta temporada para aproveitar o frio",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "personagem": "Mãe",
+        "tipo": "decisão",
+        "texto": "Após receber uma bonificação no trabalho, você se vê diante de um dilema: investir em um curso que poderia alavancar sua carreira ou usar o dinheiro para contribuir com os sonhos universitários de seu filho mais novo. Como você equilibra suas aspirações profissionais com as necessidades educacionais de sua família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Investir em educação ou treinamento profissional para melhorar suas habilidades.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.7,
+                        "texto": "Você faz cursos, tem os resultados esperados e no final ainda conseguiu uma promoção",
+                        "efeito": {
+                            "dinheiro": 30,
+                            "rodadas": 3
+                        }
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "Você não extrai nada dos cursos, apenas gastou dinheiro",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Colocar uma parte em uma poupança para emergências e usar o restante para um pequeno luxo para a família.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "A fração que você destinou para as economias aumentou poupança",
+                        "efeito": {
+                            "dinheiro": 10,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Gastar tudo em cursinhos para vestibular para o filho mais novo.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.6,
+                        "texto": "Seu filho mais novo consegue uma bolsa parcial na Universidade, mas o resto terá que se bancado pela família",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 5
+                        }
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "O filho mais novo não aproveita o investimento e não consegue nenhuma bolsa",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.1,
+                        "texto": "Seu filho mais novo consegue uma bolsa integral na Universidade, seu dinheiro foi bem gasto",
+                        "efeito": {
+                            "dinheiro": 100,
+                            "rodadas": 5
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "personagem": "Filha",
+        "tipo": "decisão",
+        "texto": "Você e sua amiga foram convidadas para uma festa de aniversário em um local luxuoso, mas os custos associados à participação são altos. O que você faria?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Explicar para sua amiga que você tem um orçamento limitado e propor uma alternativa mais acessível.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Vocês decidem fazer uma festa de pijama em casa mesmo, sem gastar nada",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Buscar reduzir seus gastos com lanches e pedir aos seus pais um adiantamento na mesada para cobrir os custos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Mesmo com a redução dos gastos, seus pais te adiantam a mesada do próximo mês",
+                        "efeito": {
+                            "dinheiro": -30,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Ir à festa mesmo que isso signifique sacrificar outras despesas pessoais.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você compra um vestido e sapatos novos para comparecer a festa",
+                        "efeito": {
+                            "dinheiro": -80,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "personagem": "Filho",
+        "tipo": "decisão",
+        "texto": "Seu celular quebrou e você precisa de um novo, mas sua família está enfrentando dificuldades financeiras. Como você sugere resolver essa situação, considerando as preocupações de seus pais?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Pedir aos seus pais que ajudem a pagar um novo aparelho top de linha.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Seus pais te ajudam a comprar um celular de última geração, mas parcelado",
+                        "efeito": {
+                            "dinheiro": -60,
+                            "rodadas": 2
+                        }
+                    },
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Seus pais te ajudam a comprar um celular com um bom custo-benefício",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Procurar por promoções e ofertas para encontrar um celular mais barato.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.7,
+                        "texto": "Você encontra uma ótima promoção e consegue comprar o celular sem sacrificar as economias da família",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "Você encontra uma boa promoção e consegue comprar o celular gastando pouco",
+                        "efeito": {
+                            "dinheiro": -20,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Usar um celular antigo como solução temporária até economizar o suficiente para um novo.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.9,
+                        "texto": "Você se dá bem com o antigo celular, o que acaba gerando uma nostalgia",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.1,
+                        "texto": "Seu celular antigo precisa de um conserto para conseguir ser usado",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "personagem": "Pai",
+        "tipo": "decisão",
+        "texto": "Com a necessidade de um carro maior para acomodar a família, você está considerando a compra de um veículo novo. No entanto, isso representa um grande investimento financeiro. Como você propõe financiar essa compra, levando em conta as outras responsabilidades financeiras da família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Fazer um financiamento com entrada e prestações mensais.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "O financiamento é aprovado e você sai dirigindo o carro",
+                        "efeito": {
+                            "dinheiro": -50,
+                            "rodadas": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Economizar dinheiro suficiente para comprar o carro à vista e evitar dívidas.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Guardar dinheiro foi uma boa alternativa, assim será possível comprar o veículo por um preço menor",
+                        "efeito": {
+                            "dinheiro": -100,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Adiar a compra do carro e investir em alternativas de transporte público ou compartilhamento de veículos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Apesar da falta de conforto, guardar o dinheiro acabou gerando um rendimento financeiro que ajudará nas despesas familiares",
+                        "efeito": {
+                            "dinheiro": 10,
+                            "rodadas": 4
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "personagem": "Mãe",
+        "tipo": "decisão",
+        "texto": "Uma oferta de emprego com um salário mais alto surgiu, mas implica na necessidade de mudar para outra cidade, o que afetaria a estabilidade e rotina da família. Como você decide entre seguir suas aspirações profissionais e priorizar o bem-estar familiar?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Aceitar o emprego e planejar cuidadosamente a mudança da família.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "Tudo sai como o planejado e o novo emprego já surte efeitos nas economias da família",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 4
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "Algumas coisas não saem como o planejado, mas as economias tendem a melhorar",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Recusar a oferta e priorizar a estabilidade e o bem-estar da família.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Melhor não arriscar",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Negociar um acordo de trabalho remoto para evitar a mudança, se possível.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "A empresa não aceita e você perde a chance",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "A empresa concorda com a sua proposta, mas com uma redução salarial",
+                        "efeito": {
+                            "dinheiro": 10,
+                            "rodadas": 4
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "A empresa gostou da sua alternativa e aceita sua proposta",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 4
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "personagem": "Pai",
+        "tipo": "decisão",
+        "texto": "Após anos economizando para comprar uma casa própria, surge uma oportunidade imperdível de fazer um investimento. Como você planeja tomar essa decisão importante para o futuro da família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Utilizar as economias para fazer um investimento de alto risco, mas com ganhos significativos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "O investimento era de alto risco, mas você acertou",
+                        "efeito": {
+                            "dinheiro": 100,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "O investimento não deu certo e suas economias se foram",
+                        "efeito": {
+                            "dinheiro": -100,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Utilizar as economias para fazer um investimento de baixo risco, mas com ganhos menores.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "O investimento era seguro e você acertou no investimento",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "O investimento não deu certo e suas economias se foram",
+                        "efeito": {
+                            "dinheiro": -20,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Priorizar o plano familiar de ter a casa própria.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você decide continuar economizando para a compra da casa",
+                        "efeito": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "personagem": "Mãe",
+        "tipo": "decisão",
+        "texto": "Sua família enfrenta um aumento inesperado nas despesas de saúde, devido a um tratamento médico necessário para um membro da família. Como você sugere lidar com essa despesa adicional sem comprometer o orçamento familiar?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Procurar por opções de planos de saúde oferecidas pela instituição de saúde.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você encontra um plano que pode ajudar a ter menos gastos, porém há uma permanência mínima no plano",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 5
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Reavaliar o orçamento familiar e fazer cortes em outras áreas para cobrir os custos médicos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.8,
+                        "texto": "Alguns gastos são cortados, porém não o suficiente para cobrir todas as despesas médicas",
+                        "efeito": {
+                            "dinheiro": -40,
+                            "rodadas": 1
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "Muitos gastos não essenciais são cortados, o que ajudam a cobrir grande parte das despesas médicas",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Utilizar parte das economias da família para cobrir os gastos médicos imprevistos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Os gastos médicos são bastante altos",
+                        "efeito": {
+                            "dinheiro": -60,
+                            "rodadas": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "personagem": "Filha",
+        "tipo": "decisão",
+        "texto": "Você recebe uma oferta de trabalho de meio período que coincide com seus estudos para a faculdade, proporcionando uma oportunidade de ganhar seu próprio dinheiro. No entanto, isso pode afetar seu desempenho acadêmico. Como você equilibra a necessidade de renda pessoal com seus compromissos escolares?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Aceitar a oferta de trabalho e sacrificar sua rotina de estudos.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Você acaba sacrificando seu futuro acadêmico, mas acaba tendo um emprego estável pro futuro",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Priorizar os estudos e recusar a oferta de trabalho para evitar possíveis impactos negativos em suas notas.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.9,
+                        "texto": "Os estudos valeram a pena, você consegue um ótimo estágio na sua área",
+                        "efeito": {
+                            "dinheiro": 40,
+                            "rodadas": 3
+                        }
+                    },
+                    {
+                        "probabilidade": 0.1,
+                        "texto": "Estudar te levou a um bom estágio na sua área",
+                        "efeito": {
+                            "dinheiro": 30,
+                            "rodadas": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Negociar um horário flexível com seu empregador para garantir que seu trabalho não interfira em suas responsabilidades acadêmicas.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.7,
+                        "texto": "Você não consegue conciliar bem ambos e acaba sendo demitida do emprego e indo mal nos estudos",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "Você consegue conciliar bem ambas as atividades e depois do trabalho de meio período você consegue um estágio na sua área",
+                        "efeito": {
+                            "dinheiro": 30,
+                            "rodadas": 5
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "personagem": "Filho",
+        "tipo": "decisão",
+        "texto": "Você se depara com a oportunidade de participar de uma viagem de intercâmbio cultural, mas os custos associados são substanciais. Como você propõe financiar essa experiência única, considerando as preocupações financeiras de seus pais?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Pesquisar por bolsas de estudo ou programas de financiamento que possam ajudar a cobrir os custos do intercâmbio.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.5,
+                        "texto": "Nenhuma bolsa é encontrada e você perde a chance",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.3,
+                        "texto": "Você encontra uma bolsa que cobra parte dos seus gastos, e decide bancar o excedente",
+                        "efeito": {
+                            "dinheiro": -30,
+                            "rodadas": 4
+                        }
+                    },
+                    {
+                        "probabilidade": 0.2,
+                        "texto": "Você acha uma bolsa que cobre integralmente seus custos",
+                        "efeito": null
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Trabalhar em meio período para economizar dinheiro e contribuir com os gastos da viagem.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "O emprego de meio período ajuda a custear boa parte dos gastos do intercambio",
+                        "efeito": {
+                            "dinheiro": -10,
+                            "rodadas": 4
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Adiar a viagem e buscar alternativas mais acessíveis para enriquecimento cultural, como programas de voluntariado local.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 0.9,
+                        "texto": "Você desistiu do intercambio e perdeu a oportunidade",
+                        "efeito": null
+                    },
+                    {
+                        "probabilidade": 0.1,
+                        "texto": "Você encontra um programa de voluntariado para o mesmo local que você desejava ir, e sem custos",
+                        "efeito": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "personagem": "Pai",
+        "tipo": "decisão",
+        "texto": "Diante da incerteza econômica, surge a oportunidade de investir em um fundo de previdência privada ou renda fixa para garantir uma renda estável na aposentadoria. Como você planeja tomar essa decisão financeira para garantir o futuro financeiro da família?",
+        "alternativas": [
+            {
+                "letra": "a",
+                "texto": "Investir uma parte do orçamento familiar mensalmente em previdência privada ou renda fixa para garantir uma renda estável na aposentadoria.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "A previdência privada estável ficará gerando seus rendimentos durante um bom tempo",
+                        "efeito": {
+                            "dinheiro": 10,
+                            "rodadas": 10
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "b",
+                "texto": "Priorizar outras formas de investimento que ofereçam retornos mais imediatos e possam ser acessíveis a curto prazo.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Retornos imediatos acabam sacrificando o retorno esperado",
+                        "efeito": {
+                            "dinheiro": 20,
+                            "rodadas": 3
+                        }
+                    }
+                ]
+            },
+            {
+                "letra": "c",
+                "texto": "Adiar a decisão de investir em previdência privada ou renda fixa e reavaliar as opções quando a situação econômica estiver mais estável.",
+                "feedbacks": [
+                    {
+                        "probabilidade": 1,
+                        "texto": "Deixar seu dinheiro parado acaba corroendo o poder do compra no longo prazo",
+                        "efeito": {
+                            "dinheiro": -5,
+                            "rodadas": 10
+                        }
+                    }
+                ]
+            }
+        ]
     }
+    
 ]
