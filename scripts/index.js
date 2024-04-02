@@ -44,7 +44,7 @@ function eventWasExecutedBefore(evento) {
 
 // Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
 function renderEvent(evento) {
-    document.getElementById('problema').style = "display: block"
+    document.getElementById('problema').style = "display: flex"
     document.getElementById('problema-personagem').textContent = evento.personagem
     document.getElementById('problema-texto').textContent = evento.texto
 

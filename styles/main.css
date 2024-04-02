@@ -1,5 +1,5 @@
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .hidden {
@@ -14,17 +14,19 @@ body {
     border: 5px solid darkgoldenrod;
     border-radius: 16px;
     width: 70vw;
-    height: 85vh;
+    min-height: 85vh;
     margin: 5vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    font-weight: bold;
     padding: 1rem 5rem;
     box-sizing: border-box;
-    min-height: 315px;
+}
+
+.box h2 {
+    font-weight: bold;
 }
 
 .box #logo {
@@ -59,14 +61,35 @@ body {
 }
 
 .btn {
-    background-color: lightgray;
+    background: linear-gradient(90deg, rgb(97, 102, 101) 0%, rgb(61, 63, 63) 100%);
+    border-radius: 1000px;
+    box-shadow: 4px 4px 8px rgb(61, 63, 63);
+    transition: all 0.1s ease-in-out 0s;
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+#btn-start, #btn-next-round {
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#btn-start:hover , #btn-next-round:hover {
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transform: translateY(2px);
 }

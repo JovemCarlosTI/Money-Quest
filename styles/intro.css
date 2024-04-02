@@ -7,18 +7,6 @@ body {
 
 }
 
-#btn-start, #btn-next-round {
-    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
-    border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
-    transition: all 0.3s ease-in-out 0s;
-}
-
-#btn-start:hover , #btn-next-round:hover {
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
-    transform: translateY(2px);
-}
-
 /* #logo {
     position: absolute;
     margin: 0 35vw;

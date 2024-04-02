@@ -2,6 +2,23 @@
     background-color: white;
 
 }
+
+.alternativa {
+    width: 50vw;
+    margin-bottom: 16px;
+}
+
+#problema-texto {
+    font-size: 2rem;
+}
+
+#feedback {
+    font-size: 1.2rem;
+}
+
+.box > * {
+    margin-bottom: 16px;
+}
 /*
 Para implementar no calendário de mês: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dcalendar&psig=AOvVaw1UMX6o4l2fSiwufGyOn37Z&ust=1712161174932000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjv88j3o4UDFQAAAAAdAAAAABAE
 */
