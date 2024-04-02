@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/intro.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>MoneyQuest</title>
+</head>
+<body>
+      <div class="box" id="problema" style="display: none;">
+        <p id="problema-personagem"></p>
+        <h4 id="problema-texto"></h4>
+        <div id="feedback"></div>
+        <button class="btn alternativa" data-alternativa="a"></button>
+        <button class="btn alternativa" data-alternativa="b"></button>
+        <button class="btn alternativa" data-alternativa="c"></button>
+
+        <button id="btn-next-round" class="btn"><span class="material-symbols-outlined">
+            arrow_forward
+            </span></button>
+    </div>
+
+    <div id="gamebar">
+        <div id="rodada"></div>
+        <div id="saldo"></div>
+        <div id="mes"></div>
+    </div>
+
+    <script src="./scripts/index.js" type="module"></script>
+    <script type="module" defer>
+        import {chooseEventFeedback, startNextRound} from './scripts/index.js'
+        
+        document.body.onload = startNextRound()
+
+        function onClickAlternativa(event) {
+            const alternativaMarcada = event.target.getAttribute('data-alternativa')
+            const alternativas = JSON.parse(window.sessionStorage.getItem('alternativas'))
+            
+            chooseEventFeedback(alternativaMarcada, alternativas)
+        }
+        const alternativas = document.querySelectorAll('.alternativa')
+        alternativas.forEach(alternativa => {
+            alternativa.addEventListener('click', onClickAlternativa)
+        })
+
+        const btnNextRound = document.getElementById('btn-next-round')
+        btnNextRound.addEventListener('click', startNextRound)
+        </script>
+</body>
+</html>

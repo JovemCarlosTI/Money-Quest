@@ -44,20 +44,23 @@ function eventWasExecutedBefore(evento) {
 
 // Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
 function renderEvent(evento) {
+    document.getElementById('problema').style = "display: block"
     document.getElementById('problema-personagem').textContent = evento.personagem
     document.getElementById('problema-texto').textContent = evento.texto
 
     if(evento.tipo == 'problema') {
         window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
+        document.getElementById('btn-next-round').style = "display: none"
         evento.alternativas.forEach(alternativa => {
             const botao = document.querySelector(`[data-alternativa=${alternativa.letra}]`)
-            botao.classList.remove('hidden')
+            botao.style = "display: flex"
             botao.textContent = `${alternativa.letra.toUpperCase()}) ${alternativa.texto}`
         })
     } else {
         window.sessionStorage.setItem('podeAvancar', JSON.stringify(true))
+        document.getElementById('btn-next-round').style = "display: flex"
         const botoes = document.querySelectorAll('.alternativa')
-        botoes.forEach(botao => botao.classList.add('hidden'))
+        botoes.forEach(botao => botao.style = "display: none")
 
         if (evento.feedback.efeito) startFeedbackEffect(evento.feedback.efeito)
         renderFeedback(evento.feedback)
@@ -84,6 +87,7 @@ const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     // Algumas consequências não mudam o saldo, nesse caso, não tem efeito
     if (feedbackEscolhido.efeito) startFeedbackEffect(feedbackEscolhido.efeito)
     renderFeedback(feedbackEscolhido)
+    document.getElementById('btn-next-round').style = "display: flex"
     window.sessionStorage.setItem('podeAvancar', JSON.stringify(true))
 }
 
@@ -118,8 +122,6 @@ function renderFeedback(feedback) {
 // Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
     const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
-
-   
 
     if (rodadaAtual == 0) {
         window.sessionStorage.setItem('rodada', rodadaAtual + 1)
