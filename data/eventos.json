@@ -1107,8 +1107,138 @@
                 "rodadas": 1
             }
         }
+    },
+    {
+        "id": 34,
+        "tipo": "cenário",
+        "texto": "Convite para sair com amigos",
+        "feedback": {
+            "texto": "Você aceitou o convite para sair com amigos, gastando R$ 50.",
+            "efeito": {
+                "dinheiro": -50,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 35,
+        "tipo": "cenário",
+        "texto": "Oportunidade de trabalho extra",
+        "feedback": {
+            "texto": "Você aceitou a oportunidade de trabalho extra, ganhando R$ 150.",
+            "efeito": {
+                "dinheiro": 150,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 36,
+        "tipo": "cenário",
+        "texto": "Gasto inesperado com transporte",
+        "feedback": {
+            "texto": "Você teve um gasto inesperado com transporte, gastando R$ 30.",
+            "efeito": {
+                "dinheiro": -30,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 37,
+        "tipo": "cenário",
+        "texto": "Promoção em jogo favorito",
+        "feedback": {
+            "texto": "Você aproveitou a promoção em seu jogo favorito, gastando R$ 40.",
+            "efeito": {
+                "dinheiro": -40,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 38,
+        "tipo": "cenário",
+        "texto": "Despesas com lanche na escola",
+        "feedback": {
+            "texto": "Você teve despesas com lanche na escola, gastando R$ 20.",
+            "efeito": {
+                "dinheiro": -20,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 39,
+        "tipo": "cenário",
+        "texto": "Venda de itens não utilizados",
+        "feedback": {
+            "texto": "Você vendeu itens não utilizados, ganhando R$ 70.",
+            "efeito": {
+                "dinheiro": 70,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 40,
+        "tipo": "cenário",
+        "texto": "Compra de roupa nova",
+        "feedback": {
+            "texto": "Você comprou roupa nova, gastando R$ 50.",
+            "efeito": {
+                "dinheiro": -50,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 41,
+        "tipo": "cenário",
+        "texto": "Opção de trabalho de meio período",
+        "feedback": {
+            "texto": "Você escolheu a opção de trabalho de meio período, ganhando R$ 120.",
+            "efeito": {
+                "dinheiro": 120,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 42,
+        "tipo": "cenário",
+        "texto": "Convite para festa",
+        "feedback": {
+            "texto": "Você aceitou o convite para a festa, gastando R$ 30.",
+            "efeito": {
+                "dinheiro": -30,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 43,
+        "tipo": "cenário",
+        "texto": "Despesas com transporte para atividade extracurricular",
+        "feedback": {
+            "texto": "Você pagou o transporte para a atividade extracurricular, gastando R$ 40.",
+            "efeito": {
+                "dinheiro": -40,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 44,
+        "tipo": "cenário",
+        "texto": "Venda de roupas que não usa mais",
+        "feedback": {
+            "texto": "Você vendeu as roupas que não usa mais, ganhando R$ 60.",
+            "efeito": {
+                "dinheiro": 60,
+                "rodadas": 1
+            }
+        }
     }
-
-
     
 ]
