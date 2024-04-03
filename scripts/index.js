@@ -44,6 +44,8 @@ function eventWasExecutedBefore(evento) {
 function eraseRenderedEvent() {
     if (document.getElementsByClassName('box').length > 0) {
         document.getElementsByClassName('box')[0].style = "display: none"
+    } else {
+        document.getElementById('problema').style = "display: none"
     }
     document.getElementById('problema-personagem').textContent = ''
     document.getElementById('problema-texto').textContent = ''

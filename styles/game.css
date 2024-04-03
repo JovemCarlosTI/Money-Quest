@@ -1,6 +1,18 @@
 #gamebar {
     background-color: white;
-
+    background-color: goldenrod;
+    border: 5px solid darkgoldenrod;
+    width: 98vw;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 16px 0;
+    font-weight: bold;
+    font-size: large;
 }
 
 .alternativa {
@@ -20,5 +32,5 @@
     margin-bottom: 16px;
 }
 /*
-Para implementar no calendário de mês: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dcalendar&psig=AOvVaw1UMX6o4l2fSiwufGyOn37Z&ust=1712161174932000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNjv88j3o4UDFQAAAAAdAAAAABAE
+Para implementar no calendário de mês: 
 */
