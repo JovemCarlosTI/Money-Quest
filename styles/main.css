@@ -6,6 +6,10 @@ body {
     display: none;
 }
 
+.blur-background {
+    backdrop-filter: blur(15px);
+}
+
 .box {
     animation: fadeInBox ease 1s;
     animation-iteration-count: 1;

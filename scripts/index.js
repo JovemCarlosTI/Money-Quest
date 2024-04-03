@@ -23,7 +23,6 @@ function startNewEvent() {
     }
 
     addToExecutedEvents(evento)
-    // TODO: Checar se o evento já foi escolhido antes
     eraseFeedback()
     renderEvent(evento)
     window.sessionStorage.setItem('alternativas', JSON.stringify(evento.alternativas))
@@ -40,6 +39,17 @@ function addToExecutedEvents(evento) {
 function eventWasExecutedBefore(evento) {
     const eventosExecutados = JSON.parse(window.sessionStorage.getItem('eventosExecutados'))
     return eventosExecutados.includes(evento.id)
+}
+
+function eraseRenderedEvent() {
+    if (document.getElementsByClassName('box').length > 0) {
+        document.getElementsByClassName('box')[0].style = "display: none"
+    }
+    document.getElementById('problema-personagem').textContent = ''
+    document.getElementById('problema-texto').textContent = ''
+    const botoes = document.querySelectorAll('.alternativa')
+    botoes.forEach(botao => botao.style = "display: none")
+
 }
 
 // Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
@@ -121,6 +131,8 @@ function renderFeedback(feedback) {
 
 // Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
+    eraseRenderedEvent()
+
     const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
 
     if (rodadaAtual == 0) {
@@ -154,8 +166,10 @@ function startNextRound() {
     window.sessionStorage.setItem('mes',  Math.trunc(rodadaAtual/10) + 1)
 
 
+    setTimeout(() => {
+        startNewEvent()
+    }, Math.random() * 10000)
 
-    startNewEvent()
 }
 
 function eraseFeedback() {
