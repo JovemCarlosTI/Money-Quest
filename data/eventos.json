@@ -118,7 +118,7 @@
         "id": 3,
         "personagem": "Filha",
         "tipo": "problema",
-        "texto": "Após meses procurando por oportunidades, você recebe uma oferta de estágio em uma empresa prestigiada, porém, localizada longe de casa, implicando em altos custos de deslocamento diário. Como você justifica essa problema à sua família?",
+        "texto": "Após meses procurando por oportunidades, você recebe uma oferta de estágio em uma empresa prestigiada, porém, localizada longe de casa, implicando em altos custos de deslocamento diário. Como você justifica essa decisão à sua família?",
         "alternativas": [
             {
                 "letra": "a",
@@ -600,7 +600,7 @@
         "id": 11,
         "personagem": "Pai",
         "tipo": "problema",
-        "texto": "Após anos economizando para comprar uma casa própria, surge uma oportunidade imperdível de fazer um investimento. Como você planeja tomar essa problema importante para o futuro da família?",
+        "texto": "Após anos economizando para comprar uma casa própria, surge uma oportunidade imperdível de fazer um investimento. Como você planeja tomar essa decisão importante para o futuro da família?",
         "alternativas": [
             {
                 "letra": "a",
@@ -846,7 +846,7 @@
         "id": 15,
         "personagem": "Pai",
         "tipo": "problema",
-        "texto": "Diante da incerteza econômica, surge a oportunidade de investir em um fundo de previdência privada ou renda fixa para garantir uma renda estável na aposentadoria. Como você planeja tomar essa problema financeira para garantir o futuro financeiro da família?",
+        "texto": "Diante da incerteza econômica, surge a oportunidade de investir em um fundo de previdência privada ou renda fixa para garantir uma renda estável na aposentadoria. Como você planeja tomar essa decisão financeira para garantir o futuro financeiro da família?",
         "alternativas": [
             {
                 "letra": "a",
@@ -878,7 +878,7 @@
             },
             {
                 "letra": "c",
-                "texto": "Adiar a problema de investir em previdência privada ou renda fixa e reavaliar as opções quando a situação econômica estiver mais estável.",
+                "texto": "Adiar a decisão de investir em previdência privada ou renda fixa e reavaliar as opções quando a situação econômica estiver mais estável.",
                 "feedbacks": [
                     {
                         "probabilidade": 1,
@@ -891,6 +891,224 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 16,
+        "tipo": "cenário",
+        "texto": "Gasto inesperado com reparo de celular",
+        "feedback": {
+            "texto": "Você derrubou o celular no chão (e ele, como sempre, caiu de tela para baixo). O conserto não foi tão caro, mas necessário.",
+            "efeito": {
+                "dinheiro": -150,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 17,
+        "tipo": "cenário",
+        "texto": "Gasto extra com lazer",
+        "feedback": {
+            "texto": "Você decidiu ir ao cinema com alguns amigos e assistir a um novo filme. Infelizmente, o filme não foi tão bom quanto esperavam.",
+            "efeito": {
+                "dinheiro": -40,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 18,
+        "tipo": "cenário",
+        "texto": "Ajuda (aleatória) financeira à família",
+        "feedback": {
+            "texto": "Você recebeu uma ajuda financeira inesperada e decide usar parte dela para ajudar a família.",
+            "efeito": {
+                "dinheiro": 200,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 19,
+        "tipo": "cenário",
+        "texto": "Possibilidade de empreender vendendo produtos caseiros",
+        "feedback": {
+            "texto": "Você decide começar a vender produtos caseiros e consegue uma renda extra de R$ 80,00.",
+            "efeito": {
+                "dinheiro": 80,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 20,
+        "tipo": "cenário",
+        "texto": "Convite para participar de um bolão",
+        "feedback": {
+            "texto": "Você recebe um convite para participar de um bolão e decide aceitar o desafio.",
+            "efeito": {
+                "dinheiro": -10,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 21,
+        "tipo": "cenário",
+        "texto": "Gasto com entretenimento em casa",
+        "feedback": {
+            "texto": "Você decide usar o dinheiro do orçamento para comprar alguns jogos, filmes e livros para se divertir em casa.",
+            "efeito": {
+                "dinheiro": -20,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 22,
+        "tipo": "cenário",
+        "texto": "Perda de dinheiro por esquecimento",
+        "feedback": {
+            "texto": "Você esqueceu de desligar o ar-condicionado e acabou pagando uma conta muito alta.",
+            "efeito": {
+                "dinheiro": -10,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 23,
+        "tipo": "cenário",
+        "texto": "Oportunidade de ganhar dinheiro extra com um trabalho temporário",
+        "feedback": {
+            "texto": "Você aceita o trabalho temporário e consegue ganhar R$ 100.",
+            "efeito": {
+                "dinheiro": 100,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 24,
+        "tipo": "cenário",
+        "texto": "Assinar um serviço de streaming",
+        "feedback": {
+            "texto": "Você decide assinar um serviço de streaming e paga R$ 15 por mês.",
+            "efeito": {
+                "dinheiro": -15,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 25,
+        "tipo": "cenário",
+        "texto": "Recebimento de uma pequena quantia como reembolso de uma compra anterior",
+        "feedback": {
+            "texto": "Você recebe um reembolso de R$ 10 de uma compra anterior.",
+            "efeito": {
+                "dinheiro": 10,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 26,
+        "tipo": "cenário",
+        "texto": "Despesas com alimentação fora de casa",
+        "feedback": {
+            "texto": "Você decide comer fora de casa e paga R$ 25 pela conta.",
+            "efeito": {
+                "dinheiro": -25,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 27,
+        "tipo": "cenário",
+        "texto": "Participação em um evento com taxa de inscrição",
+        "feedback": {
+            "texto": "Você decide participar de um evento e paga R$ 20 pela taxa de inscrição.",
+            "efeito": {
+                "dinheiro": -20,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 28,
+        "tipo": "cenário",
+        "texto": "Desconto em uma compra de supermercado usando cupom",
+        "feedback": {
+            "texto": "Você usa um cupom de desconto e paga R$ 5 a menos na sua compra no supermercado.",
+            "efeito": {
+                "dinheiro": 5,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 29,
+        "tipo": "cenário",
+        "texto": "Possibilidade de ganhar dinheiro participando de uma pesquisa de mercado",
+        "feedback": {
+            "texto": "Você participa da pesquisa de mercado e ganha R$ 30.",
+            "efeito": {
+                "dinheiro": 30,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 30,
+        "tipo": "cenário",
+        "texto": "Gasto com uma emergência médica",
+        "feedback": {
+            "texto": "Você precisou ir ao médico por causa de uma gripe. A consulta foi rápida e o médico prescreveu um remédio.",
+            "efeito": {
+                "dinheiro": -50,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 31,
+        "tipo": "cenário",
+        "texto": "Recebimento de dinheiro como presente de um parente",
+        "feedback": {
+            "texto": "Seu tio avô enviou um presente de R$ 50 por seu aniversário.",
+            "efeito": {
+                "dinheiro": 50,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 32,
+        "tipo": "cenário",
+        "texto": "Despesas com a manutenção de um hobby",
+        "feedback": {
+            "texto": "Você decidiu investir em um hobby. No entanto, as despesas com a manutenção do hobby, como materiais e aulas, totalizaram R$ 35.",
+            "efeito": {
+                "dinheiro": -35,
+                "rodadas": 1
+            }
+        }
+    },
+    {
+        "id": 33,
+        "tipo": "cenário",
+        "texto": "Opção de comprar um produto em oferta por impulso",
+        "feedback": {
+            "texto": "Você decidiu comprar um produto em oferta por impulso, gastando R$ 100.",
+            "efeito": {
+                "dinheiro": -100,
+                "rodadas": 1
+            }
+        }
     }
+
+
     
 ]
