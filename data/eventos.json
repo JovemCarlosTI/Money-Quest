@@ -53,7 +53,7 @@
     },
     {
         "id": 2,
-        "personagem": "Mãe",
+        "personagem": "mae",
         "tipo": "problema",
         "texto": "Você sempre sonhou em aprimorar suas habilidades profissionais, mas agora se encontra diante da oportunidade de investir em um negócio próprio. Como você equilibra seus sonhos pessoais com as necessidades financeiras da família?",
         "alternativas": [
@@ -116,7 +116,7 @@
     },
     {
         "id": 3,
-        "personagem": "Filha",
+        "personagem": "filha",
         "tipo": "problema",
         "texto": "Após meses procurando por oportunidades, você recebe uma oferta de estágio em uma empresa prestigiada, porém, localizada longe de casa, implicando em altos custos de deslocamento diário. Como você justifica essa decisão à sua família?",
         "alternativas": [
@@ -181,7 +181,7 @@
     },
     {
         "id": 4,
-        "personagem": "Filho",
+        "personagem": "filho",
         "tipo": "problema",
         "texto": "Seu desejo por um novo videogame coloca você em conflito com seus pais, que estão preocupados com os gastos extras. Como você argumenta sua posição, considerando as finanças da família?",
         "alternativas": [
@@ -236,7 +236,7 @@
     },
     {
         "id": 5,
-        "personagem": "Pai",
+        "personagem": "pai",
         "tipo": "problema",
         "texto": "Com o estresse do trabalho, a ideia de uma viagem em família é tentadora, mas você está preocupado com os custos. Como você planeja proporcionar essa experiência à sua família sem comprometer suas finanças?",
         "alternativas": [
@@ -291,7 +291,7 @@
     },
     {
         "id": 6,
-        "personagem": "Mãe",
+        "personagem": "mae",
         "tipo": "problema",
         "texto": "Após receber uma bonificação no trabalho, você se vê diante de um dilema: investir em um curso que poderia alavancar sua carreira ou usar o dinheiro para contribuir com os sonhos universitários de seu filho mais novo. Como você equilibra suas aspirações profissionais com as necessidades educacionais de sua família?",
         "alternativas": [
@@ -365,7 +365,7 @@
     },
     {
         "id": 7,
-        "personagem": "Filha",
+        "personagem": "filha",
         "tipo": "problema",
         "texto": "Você e sua amiga foram convidadas para uma festa de aniversário em um local luxuoso, mas os custos associados à participação são altos. O que você faria?",
         "alternativas": [
@@ -412,7 +412,7 @@
     },
     {
         "id": 8,
-        "personagem": "Filho",
+        "personagem": "filho",
         "tipo": "problema",
         "texto": "Seu celular quebrou e você precisa de um novo, mas sua família está enfrentando dificuldades financeiras. Como você sugere resolver essa situação, considerando as preocupações de seus pais?",
         "alternativas": [
@@ -480,7 +480,7 @@
     },
     {
         "id": 9,
-        "personagem": "Pai",
+        "personagem": "pai",
         "tipo": "problema",
         "texto": "Com a necessidade de um carro maior para acomodar a família, você está considerando a compra de um veículo novo. No entanto, isso representa um grande investimento financeiro. Como você propõe financiar essa compra, levando em conta as outras responsabilidades financeiras da família?",
         "alternativas": [
@@ -530,7 +530,7 @@
     },
     {
         "id": 10,
-        "personagem": "Mãe",
+        "personagem": "mae",
         "tipo": "problema",
         "texto": "Uma oferta de emprego com um salário mais alto surgiu, mas implica na necessidade de mudar para outra cidade, o que afetaria a estabilidade e rotina da família. Como você decide entre seguir suas aspirações profissionais e priorizar o bem-estar familiar?",
         "alternativas": [
@@ -598,7 +598,7 @@
     },
     {
         "id": 11,
-        "personagem": "Pai",
+        "personagem": "pai",
         "tipo": "problema",
         "texto": "Após anos economizando para comprar uma casa própria, surge uma oportunidade imperdível de fazer um investimento. Como você planeja tomar essa decisão importante para o futuro da família?",
         "alternativas": [
@@ -661,7 +661,7 @@
     },
     {
         "id": 12,
-        "personagem": "Mãe",
+        "personagem": "mae",
         "tipo": "problema",
         "texto": "Sua família enfrenta um aumento inesperado nas despesas de saúde, devido a um tratamento médico necessário para um membro da família. Como você sugere lidar com essa despesa adicional sem comprometer o orçamento familiar?",
         "alternativas": [
@@ -719,7 +719,7 @@
     },
     {
         "id": 13,
-        "personagem": "Filha",
+        "personagem": "filha",
         "tipo": "problema",
         "texto": "Você recebe uma oferta de trabalho de meio período que coincide com seus estudos para a faculdade, proporcionando uma oportunidade de ganhar seu próprio dinheiro. No entanto, isso pode afetar seu desempenho acadêmico. Como você equilibra a necessidade de renda pessoal com seus compromissos escolares?",
         "alternativas": [
@@ -782,7 +782,7 @@
     },
     {
         "id": 14,
-        "personagem": "Filho",
+        "personagem": "filho",
         "tipo": "problema",
         "texto": "Você se depara com a oportunidade de participar de uma viagem de intercâmbio cultural, mas os custos associados são substanciais. Como você propõe financiar essa experiência única, considerando as preocupações financeiras de seus pais?",
         "alternativas": [
@@ -844,7 +844,7 @@
     },
     {
         "id": 15,
-        "personagem": "Pai",
+        "personagem": "pai",
         "tipo": "problema",
         "texto": "Diante da incerteza econômica, surge a oportunidade de investir em um fundo de previdência privada ou renda fixa para garantir uma renda estável na aposentadoria. Como você planeja tomar essa decisão financeira para garantir o futuro financeiro da família?",
         "alternativas": [
