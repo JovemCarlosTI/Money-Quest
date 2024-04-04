@@ -44,6 +44,7 @@ function eventWasExecutedBefore(evento) {
 function eraseRenderedEvent() {
     if (document.getElementsByClassName('box').length > 0) {
         document.getElementsByClassName('box')[0].style = "display: none"
+        document.body.classList.remove('blur-background')
     } else {
         document.getElementById('problema').style = "display: none"
     }
@@ -56,6 +57,8 @@ function eraseRenderedEvent() {
 
 // Função auxiliar de RenderEvent, organiza visualmente o evento (útil para quando for adaptar pro visual novo)
 function renderEvent(evento) {
+    if (document.getElementsByClassName('box').length > 0) document.body.classList.add('blur-background')
+
     document.getElementById('problema').style = "display: flex"
     document.getElementById('problema-personagem').textContent = evento.personagem
     document.getElementById('problema-texto').textContent = evento.texto

@@ -2,7 +2,7 @@
     background-color: white;
     background-color: goldenrod;
     border: 5px solid darkgoldenrod;
-    width: 98vw;
+    width: calc(100% - 10px);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     position: absolute;
