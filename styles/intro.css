@@ -7,6 +7,9 @@ body {
 
 }
 
+.box {
+    height: 60vh;
+}
 /* #logo {
     position: absolute;
     margin: 0 35vw;
