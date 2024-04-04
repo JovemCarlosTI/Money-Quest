@@ -87,6 +87,8 @@ const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     if (JSON.parse(window.sessionStorage.getItem('podeAvancar'))) return
     const feedbacks = alternativas.find(alternativa => alternativa.letra === alternativaMarcada).feedbacks
 
+    highlightBtnAlternativas(alternativaMarcada)
+
     let probabilidadeAcumulada = 0
     const probabilidadeSorteada = Math.random()
     let feedbackEscolhido
@@ -106,6 +108,27 @@ const chooseEventFeedback = (alternativaMarcada, alternativas) => {
     window.sessionStorage.setItem('podeAvancar', JSON.stringify(true))
 }
 
+function highlightBtnAlternativas(alternativaMarcada) {
+    document.querySelector(`[data-alternativa=${alternativaMarcada}]`).classList.add('marcada')
+
+    const botoes = document.querySelectorAll('.alternativa')
+    botoes.forEach(botao => {
+        if (botao.dataset.alternativa !== alternativaMarcada) {
+            botao.classList.add('desmarcada')
+            botao.disabled = true
+        }
+    })
+}
+
+function resetBtnAlternativas() {
+    const botoes = document.querySelectorAll('.alternativa')
+    botoes.forEach(botao => {
+        botao.classList.remove('marcada')
+        botao.classList.remove('desmarcada')
+        botao.disabled = false
+    })
+}
+
 function startFeedbackEffect(feedback) {
     const efeitosAtuais = JSON.parse(window.sessionStorage.getItem('efeitos'))
     efeitosAtuais.push(feedback)
@@ -115,10 +138,7 @@ function startFeedbackEffect(feedback) {
 // Função auxiliar de chooseEventFeedback, organiza visualmente o feedback (útil para quando for adaptar pro visual novo)
 function renderFeedback(feedback) {
     const feedbackView = document.getElementById('feedback')
-    const mes = document.getElementById('mes')
-    const rodada = document.getElementById('rodada')
-    let mesHTML = 'Mês: ' + Number(window.sessionStorage.getItem('mes'))
-    let rodadaHTML = 'Rodada: ' + Number(window.sessionStorage.getItem('rodada'))
+
 
     let feedbackHTML = `<div>
         <p>${feedback.texto}</p>
@@ -129,20 +149,33 @@ function renderFeedback(feedback) {
         ) : 'Nem perdeu, nem ganhou!'}`
 
     feedbackView.innerHTML = feedbackHTML
-    mes.innerHTML = mesHTML
-    rodada.innerHTML = rodadaHTML
+}
 
+function renderGameVariables() {
+    const mes = document.getElementById('mes')
+    const rodada = document.getElementById('rodada')
+    const saldo = document.getElementById('saldo')
+
+    let mesHTML = 'Mês: ' + Number(window.sessionStorage.getItem('mes'))
+    let rodadaHTML = 'Rodada: ' + Number(window.sessionStorage.getItem('rodada'))
+    let saldoHTML = `R$ ${parseFloat(window.sessionStorage.getItem('saldo')).toFixed(2).replace('.', ',')}`
+
+    mes.innerHTML = mesHTML
+    saldo.innerHTML = saldoHTML
+    rodada.innerHTML = rodadaHTML
 }
 
 // Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
 function startNextRound() {
     eraseRenderedEvent()
+    resetBtnAlternativas()
 
     const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
 
     if (rodadaAtual == 0) {
         window.sessionStorage.setItem('rodada', rodadaAtual + 1)
         window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual/10) + 1)
+        renderGameVariables()
         startNewEvent()
         return
     }
@@ -170,10 +203,11 @@ function startNextRound() {
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
     window.sessionStorage.setItem('mes',  Math.trunc(rodadaAtual/10) + 1)
 
+    renderGameVariables()
 
     setTimeout(() => {
         startNewEvent()
-    }, Math.random() * 10000)
+    }, Math.random() * 5000)
 
 }
 

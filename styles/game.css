@@ -1,3 +1,12 @@
+body {
+    background-image: url('../assets/images/scenario/casa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 50%;
+    color: white;
+
+}
+
 #gamebar {
     background-color: white;
     background-color: goldenrod;
@@ -44,6 +53,19 @@
 
 #personagens > * {
     height: 60vh;
+}
+
+.marcada {
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%) !important;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64) !important;
+}
+
+.desmarcada {
+    background: linear-gradient(90deg, rgb(160, 160, 160) 0%,rgb(110, 110, 110) 100%);
+    border-radius: 1000px;
+    box-shadow: 4px 4px 8px rgb(110, 110, 110);
+    cursor: default;
+}
 /*
 Para implementar no calendário de mês: 
 */
