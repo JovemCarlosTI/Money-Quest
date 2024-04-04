@@ -13,7 +13,7 @@ window.sessionStorage.setItem('eventosExecutados', JSON.stringify([]))
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
     if (eventWasExecutedBefore(evento)) {
-        if (!JSON.parse(window.sessionStorage.getItem('eventosExecutados')).length >= eventos.length) {
+        if (!JSON.parse(window.sessionStorage.getItem('eventosExecutados')).length !== eventos.length) {
             startNewEvent()
             return
         } else {
