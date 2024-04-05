@@ -192,50 +192,85 @@ function renderGameVariables() {
     rodada.innerHTML = rodadaHTML
 }
 
-// Avança o round, executando os efeitos pendentes e iniciando novo evento (ex: -100 por 2 rodadas, descontando o valor e diminuindo para 1 rodada pendente)
+// Função para aplicar efeitos pendentes e atualizar sua duração
+function applyPendingEffects() {
+    const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
+
+    for (let i = 0; i < efeitos.length; i++) {
+        const efeito = efeitos[i]
+        efeito.rodadas -= 1
+
+        // Aplica o efeito ao saldo
+        let saldoAtualizado = Number(window.sessionStorage.getItem('saldo')) + efeito.dinheiro
+        window.sessionStorage.setItem('saldo', saldoAtualizado)
+
+        // Se o efeito não tiver mais rodadas, remove-o da lista
+        if (efeito.rodadas <= 0) {
+            efeitos.splice(i, 1)
+            i-- // Decrementa o índice, já que o array foi modificado
+        }
+    }
+
+
+
+    // Atualiza os efeitos na sessionStorage
+    window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
+}
+
+// Função para adicionar novo efeito
+function addEffect(effect) {
+    const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
+    efeitos.push(effect)
+    window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
+}
+
+// Função para iniciar a próxima rodada
 function startNextRound() {
     eraseRenderedEvent()
     resetBtnAlternativas()
 
     const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
 
-    if (rodadaAtual == 0) {
+    if (rodadaAtual === 0) {
+        // Inicia o primeiro evento do jogo
         window.sessionStorage.setItem('rodada', rodadaAtual + 1)
-        window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual/10) + 1)
+        window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual / 10) + 1)
         renderGameVariables()
         startNewEvent()
         return
     }
 
-
+    // Verifica se é possível avançar
     if (!JSON.parse(window.sessionStorage.getItem('podeAvancar'))) return
 
-    const saldo = Number(window.sessionStorage.getItem('saldo'))
-    const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
+    
+    // Aplica os efeitos pendentes
+    applyPendingEffects()
 
-    let saldoAtualizado = saldo
+    // Verifica condições de vitória e derrota
+    let saldoAtualizado = Number(window.sessionStorage.getItem('saldo'))
 
-    // Executa eventos pendentes, salvando o índice daqueles que serão removidos por acabarem
-    let indexEffectsToRemove = []
-    for(let i = 0; i < efeitos.length; i++) {
-        saldoAtualizado += efeitos[i].dinheiro
-        efeitos[i].rodadas -= 1
-
-        if(efeitos[i].rodadas === 0) indexEffectsToRemove.push(i)
+    if (rodadaAtual % 20 === 0) {
+        if (saldoAtualizado < 0) {
+            alert('Você faliu! Recarregue a página para jogar novamente!');
+            return;
+        } else if (saldoAtualizado > 0 && saldoAtualizado < 400) {
+            alert('Você ganhou o jogo! Parabéns!');
+            return;
+        }else if (saldoAtualizado >= 400) {
+            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
+            return;
+        }
     }
-    indexEffectsToRemove.forEach(index => efeitos.splice(index, 1))
 
-    window.sessionStorage.setItem('saldo', saldoAtualizado)
-    window.sessionStorage.setItem('efeitos', JSON.stringify(efeitos))
+    // Atualiza as variáveis de jogo e inicia um novo evento
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
-    window.sessionStorage.setItem('mes',  Math.trunc(rodadaAtual/10) + 1)
-
+    window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual / 10) + 1)
     renderGameVariables()
 
     setTimeout(() => {
         startNewEvent()
     }, Math.random() * 5000)
-
 }
 
 function eraseFeedback() {
