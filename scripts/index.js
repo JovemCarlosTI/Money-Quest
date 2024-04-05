@@ -9,6 +9,13 @@ window.sessionStorage.setItem('efeitos', JSON.stringify([]))
 window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
 window.sessionStorage.setItem('eventosExecutados', JSON.stringify([]))
 
+const PERSONAGENS_URL = {
+    "pai": "./assets/images/characters/marcelo.png",
+    "mae": "#",
+    "filho": "./assets/images/characters/bruno.png",
+    "filha": "./assets/images/characters/leticia.png"
+}
+
 // Escolhe um evento da lista e o configura para uso
 function startNewEvent() {
     const evento = chooseRandomEvent(eventos)
@@ -48,7 +55,11 @@ function eraseRenderedEvent() {
     } else {
         document.getElementById('problema').style = "display: none"
     }
+
+    // Retirar no futuro, usando apenas para visualização em index.html
     document.getElementById('problema-personagem').textContent = ''
+    eraseCharacter()
+
     document.getElementById('problema-texto').textContent = ''
     const botoes = document.querySelectorAll('.alternativa')
     botoes.forEach(botao => botao.style = "display: none")
@@ -62,10 +73,11 @@ function renderEvent(evento) {
     document.getElementById('problema').style = "display: flex"
     document.getElementById('problema-personagem').textContent = evento.personagem
     document.getElementById('problema-texto').textContent = evento.texto
-
+    
     if(evento.tipo == 'problema') {
         window.sessionStorage.setItem('podeAvancar', JSON.stringify(false))
         document.getElementById('btn-next-round').style = "display: none"
+        renderCharacter(evento.personagem)
         evento.alternativas.forEach(alternativa => {
             const botao = document.querySelector(`[data-alternativa=${alternativa.letra}]`)
             botao.style = "display: flex"
@@ -80,6 +92,21 @@ function renderEvent(evento) {
         if (evento.feedback.efeito) startFeedbackEffect(evento.feedback.efeito)
         renderFeedback(evento.feedback)
     }
+}
+
+function renderCharacter(personagem) {
+    if(personagem == 'mae') return // Temporário, enquanto não temos imagem da mãe
+    const personagemImg = document.getElementById('personagem_destaque')
+    personagemImg.src = PERSONAGENS_URL[personagem]
+    personagemImg.alt = `Imagem do(a) ${personagem}`
+    personagemImg.style = "display: flex"
+}
+
+function eraseCharacter() {
+    const personagemImg = document.getElementById('personagem_destaque')
+    personagemImg.src = ''
+    personagemImg.alt = ''
+    personagemImg.style = "display: none"
 }
 
 // Escolhe o feedback (reação) aleatório de acordo com a alternativa marcada

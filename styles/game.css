@@ -22,7 +22,7 @@ body {
     padding: 16px 0;
     font-weight: bold;
     font-size: large;
-    z-index: 1;
+    z-index: 2;
 }
 
 .alternativa {
@@ -66,6 +66,34 @@ body {
     box-shadow: 4px 4px 8px rgb(110, 110, 110);
     cursor: default;
 }
-/*
-Para implementar no calendário de mês: 
-*/
+
+
+#personagem_destaque {
+    animation: fadeInCharacter ease .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin-left: 36px;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+@keyframes fadeInCharacter {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #personagem_destaque {
+        width: 15vw;
+    }
+}
