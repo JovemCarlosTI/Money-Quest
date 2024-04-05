@@ -250,23 +250,35 @@ function startNextRound() {
     // Verifica condições de vitória e derrota
     let saldoAtualizado = Number(window.sessionStorage.getItem('saldo'))
 
-    if (rodadaAtual % 20 === 0) {
-        if (saldoAtualizado < 0) {
-            alert('Você faliu! Recarregue a página para jogar novamente!');
-            return;
-        } else if (saldoAtualizado > 0 && saldoAtualizado < 400) {
-            alert('Você ganhou o jogo! Parabéns!');
-            return;
-        }else if (saldoAtualizado >= 400) {
-            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
-            return;
-        }
-    }
+
 
     // Atualiza as variáveis de jogo e inicia um novo evento
     window.sessionStorage.setItem('rodada', rodadaAtual + 1)
     window.sessionStorage.setItem('mes', Math.trunc(rodadaAtual / 10) + 1)
     renderGameVariables()
+
+    
+    if (saldoAtualizado < 0) {
+        alert('Você faliu! Recarregue a página para jogar novamente!');
+        return;
+    }
+
+    if (rodadaAtual === 10) {
+        
+        if (saldoAtualizado >= 400) {
+            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
+            return;
+        }
+    } else if (rodadaAtual === 20) {
+        if (saldoAtualizado > 0 && saldoAtualizado < 400) {
+            alert('Você ganhou o jogo! Parabéns!');
+            return;
+        }
+        else if (saldoAtualizado >= 400) {
+            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
+            return;
+        }
+    }
 
     setTimeout(() => {
         startNewEvent()
