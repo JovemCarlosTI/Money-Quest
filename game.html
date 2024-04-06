@@ -44,6 +44,35 @@
     <script src="./scripts/index.js" type="module"></script>
     <script type="module" defer>
         import {chooseEventFeedback, startNextRound} from './scripts/index.js'
+
+        function renderBox(msg="") {
+            if (document.getElementsByClassName('box').length > 0) document.body.classList.add('blur-background')
+    
+            document.getElementById('problema').style = "display: flex"
+            document.getElementById('problema-texto').textContent = msg
+            document.getElementById('feedback').textContent = ""
+            document.getElementById('alternativas').style = "display: none"
+
+
+        }
+
+        function renderSuccessCondition() {
+            renderBox("Você foi muito bem! Ganhou o jogo com sucesso!")
+            // Tocar música de sucesso
+            window.location = '/intro.html'
+        }
+
+        function renderWinCondition() {
+            renderBox("Você ganhou o jogo! Parabéns!")
+            // Tocar música de vitória
+            window.location = '/intro.html'
+        }
+
+        function renderLoseCondition() {
+            renderBox("Você faliu! Recarregue a página para jogar novamente!")
+            // Tocar música de derrota
+            window.location = '/intro.html'
+        }
         
         document.body.onload = startNextRound()
 
@@ -59,7 +88,7 @@
         })
 
         const btnNextRound = document.getElementById('btn-next-round')
-        btnNextRound.addEventListener('click', startNextRound)
+        btnNextRound.addEventListener('click', () => startNextRound(renderWinCondition, renderLoseCondition, renderSuccessCondition))
         </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ body {
     width: calc(100% - 10px);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
@@ -23,6 +23,38 @@ body {
     font-weight: bold;
     font-size: large;
     z-index: 2;
+}
+
+@media screen and (min-height: 100vh) {
+    #gamebar {
+        bottom: -60px;
+    }
+
+    #personagens {
+        bottom: -60px !important;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    #problema-texto {
+        font-size: 1.5rem !important;
+    }
+
+    #feedback {
+        font-size: 1rem !important;
+    }
+
+    .desmarcada {
+        display: none !important;
+    }
+
+    #personagem_destaque {
+        width: 15vw !important;
+    }
+
+    #personagens {
+        bottom: -60px !important;
+    }
 }
 
 .alternativa {
@@ -38,7 +70,7 @@ body {
     font-size: 1.2rem;
 }
 
-.box > * {
+.box>* {
     margin-bottom: 16px;
 }
 
@@ -51,17 +83,17 @@ body {
     margin: 0 auto;
 }
 
-#personagens > * {
+#personagens>* {
     height: 60vh;
 }
 
 .marcada {
-    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%) !important;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64) !important;
+    background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%) !important;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64) !important;
 }
 
 .desmarcada {
-    background: linear-gradient(90deg, rgb(160, 160, 160) 0%,rgb(110, 110, 110) 100%);
+    background: linear-gradient(90deg, rgb(160, 160, 160) 0%, rgb(110, 110, 110) 100%);
     border-radius: 1000px;
     box-shadow: 4px 4px 8px rgb(110, 110, 110);
     cursor: default;

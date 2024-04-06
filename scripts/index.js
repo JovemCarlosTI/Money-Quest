@@ -235,7 +235,7 @@ function addEffect(effect) {
 }
 
 // Função para iniciar a próxima rodada
-function startNextRound() {
+function startNextRound(renderWinCondition = null, renderLoseCondition = null, renderSuccessCondition = null) {
     eraseRenderedEvent()
     resetBtnAlternativas()
 
@@ -269,23 +269,23 @@ function startNextRound() {
 
     
     if (saldoAtualizado < 0) {
-        alert('Você faliu! Recarregue a página para jogar novamente!');
+        renderLoseCondition ? renderLoseCondition() : alert('Você faliu! Recarregue a página para jogar novamente!');
         return;
     }
 
     if (rodadaAtual === 10) {
         
         if (saldoAtualizado >= 400) {
-            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
+            renderSuccessCondition ? renderSuccessCondition() : alert('Você foi muito bem! Ganhou o jogo com sucesso!');
             return;
         }
     } else if (rodadaAtual === 20) {
         if (saldoAtualizado > 0 && saldoAtualizado < 400) {
-            alert('Você ganhou o jogo! Parabéns!');
+            renderWinCondition ? renderWinCondition() : alert('Você ganhou o jogo! Parabéns!');
             return;
         }
         else if (saldoAtualizado >= 400) {
-            alert('Você foi muito bem! Ganhou o jogo com sucesso!');
+            renderSuccessCondition ? renderSuccessCondition() : alert('Você foi muito bem! Ganhou o jogo com sucesso!');
             return;
         }
     }

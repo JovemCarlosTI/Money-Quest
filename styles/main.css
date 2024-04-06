@@ -1,6 +1,6 @@
 body {
     overflow-x: hidden;
-    height: 90vh;
+    min-height: 100vh;
     margin: 0;
     padding: 5vh 0;
 }
@@ -13,7 +13,7 @@ body {
     backdrop-filter: blur(15px);
 }
 
-.blur-background > #personagens {
+.blur-background>#personagens {
     filter: blur(15px);
 }
 
@@ -34,10 +34,17 @@ body {
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    padding: 1rem 5rem;
+    /* max-height: 92vh; */
+    padding: .7rem 3.7rem;
     box-sizing: border-box;
     z-index: 1;
 }
+
+/* @media screen and (min-height: 100vh) {
+    .box {
+        top: 60%;
+    }
+} */
 
 .box h2 {
     font-weight: bold;
@@ -98,14 +105,16 @@ body {
     transform: translateY(-2px);
 }
 
-#btn-start, #btn-next-round {
-    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+#btn-start,
+#btn-next-round {
+    background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
     border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
     transition: all 0.3s ease-in-out 0s;
 }
 
-#btn-start:hover , #btn-next-round:hover {
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+#btn-start:hover,
+#btn-next-round:hover {
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
     transform: translateY(2px);
 }
