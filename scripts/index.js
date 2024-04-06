@@ -195,14 +195,24 @@ function renderGameVariables() {
 // Função para aplicar efeitos pendentes e atualizar sua duração
 function applyPendingEffects() {
     const efeitos = JSON.parse(window.sessionStorage.getItem('efeitos'))
+    const rodadaAtual = Number(window.sessionStorage.getItem('rodada'))
 
     for (let i = 0; i < efeitos.length; i++) {
         const efeito = efeitos[i]
         efeito.rodadas -= 1
 
-        // Aplica o efeito ao saldo
-        let saldoAtualizado = Number(window.sessionStorage.getItem('saldo')) + efeito.dinheiro
-        window.sessionStorage.setItem('saldo', saldoAtualizado)
+        if (rodadaAtual == 10){
+            // Aplica o efeito ao saldo
+            let saldoAtualizado = Number(window.sessionStorage.getItem('saldo')) + efeito.dinheiro + 50
+            window.sessionStorage.setItem('saldo', saldoAtualizado)
+            alert('Você recebeu sua mesada de R$ 50')
+        } else {
+            // Aplica o efeito ao saldo
+            let saldoAtualizado = Number(window.sessionStorage.getItem('saldo')) + efeito.dinheiro
+            window.sessionStorage.setItem('saldo', saldoAtualizado)
+        }
+
+
 
         // Se o efeito não tiver mais rodadas, remove-o da lista
         if (efeito.rodadas <= 0) {
